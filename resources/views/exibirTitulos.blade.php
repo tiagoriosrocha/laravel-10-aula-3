@@ -31,7 +31,7 @@
           </ul>
           <form class="d-flex" role="search" action="/buscaportitulo" method="POST">
             {{ csrf_field() }}
-            <input class="form-control me-2" name="busca" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control me-2" name="busca" type="search" placeholder="Buscar por Título" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
           </form>
         </div>
