@@ -8,6 +8,15 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
+    
+    <!------------------------------------------------------------
+      ------------------------------------------------------------
+      AQUI EU CRIO O MENU SUPERIOR DO SITE UTILIZANDO O ELEMENTO
+      NAVBAR DO BOOTSTRAP
+      ------------------------------------------------------------
+      ------------------------------------------------------------ 
+    -->
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
         <a class="navbar-brand" href="/">Netflix</a>
@@ -15,38 +24,82 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- AQUI HÁ UMA LISTA DE LINKS QUE SERÃO EXIBIDOS NO MENU SUPERIOR -->
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/ordenar/titulo">Título</a>
+              <!-- UM LINK QUE CHAMA A ROTA /ordenar/ ENVIANDO O PARÂMETRO titulo -->
+              <a class="nav-link" href="/ordenar/titulo">Título</a> 
             </li>
             <li class="nav-item">
+              <!-- UM LINK QUE CHAMA A ROTA /ordenar/ ENVIANDO O PARÂMETRO diretor -->
               <a class="nav-link" href="/ordenar/diretor">Diretor</a>
             </li>
             <li class="nav-item">
+              <!-- UM LINK QUE CHAMA A ROTA /ordenar/ ENVIANDO O PARÂMETRO ano -->
               <a class="nav-link" href="/ordenar/ano">Ano</a>
             </li>
           </ul>
+          <!-- AQUI É UM FORMULÁRIO DE BUSCA NO MENU SUPERIOR -->
+          <!-- TODA VEZ QUE EU EXECUTO, EU CHAMO A ROTA CHAMADA /buscarportitulo USANDO O MÉTODO post -->
           <form class="d-flex" role="search" action="/buscaportitulo" method="POST">
-            {{ csrf_field() }}
+            {{ csrf_field() }} <!-- LEMBRE-SE QUE TODO FORMULÁRIO DEVE TER ESTE ITEM PARA MANTER A SEGURANÇA DOS FORMULÁRIOS -->
             <input class="form-control me-2" name="busca" type="search" placeholder="Buscar por Título" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
           </form>
         </div>
       </div>
-    </nav>
-
-    <div class="container my-5">       
-      
+    </nav> <!-- FIM DO MENU SUPERIOR -->
+    
+    
+    <!------------------------------------------------------------
+      ------------------------------------------------------------
+      INÍCIO DO CONTEÚDO DO BOOTSTRAP
+      ------------------------------------------------------------
+      ------------------------------------------------------------ 
+    -->
+    <div class="container my-5"> 
+         
+        <!------------------------------------------------------------
+          ------------------------------------------------------------
+          AQUI EU CRIO UMA LINHA (ROW) DO BOOTSTRAP
+          E COLOCO UM TÍTULO DA PÁGINA
+          ------------------------------------------------------------
+          ------------------------------------------------------------ 
+        -->
         <div class="row">
             <div class="col-md-12 mb-5">
                 <h1 class="text-center">Netflix Titles</h1>
             </div>
-        </div>
+        </div> <!-- FIM DA ROW -->
 
+
+        <!------------------------------------------------------------
+          ------------------------------------------------------------
+          AQUI EU CRIO UMA LINHA (ROW) DO BOOTSTRAP
+          E COLOCO UM TÍTULO DA PÁGINA
+          ------------------------------------------------------------
+          ------------------------------------------------------------ 
+        -->
         <div class="row">
+            
+              <!------------------------------------------------------------
+                ------------------------------------------------------------
+                AQUI EU FAÇO UM LAÇO DE REPETIÇÃO
+                EM QUE EU PEGO DA MINHA LISTA CHAMADA $titulos
+                ITEM POR ITEM E VOU SALVANDO NA VARIÁVEL $umTitulo
+                E EXECUTO O LAÇO DE REPETIÇÃO
+
+                NESTE CASO, CADA VEZ EU CRIO UM COMPONENTE DO TIPO CARD 
+                DO BOOTSTRAP.
+
+                PARA CADA COMPONENTE CARD, EU COLOCO UMA IMAGEM, O TÍTULO DO
+                FILME, O ANO DE LANÇAMENTO, DURAÇÃO, RESUMO.
+                ------------------------------------------------------------
+                ------------------------------------------------------------ 
+              -->
             @foreach($titulos as $umTitulo)
                 <div class="col-sm-6 col-md-4 mb-3">
                     <div class="card" style="width: 20rem;">
@@ -62,11 +115,10 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
-        </div>
+            @endforeach <!-- AQUI EU FINALIZO O LAÇO DE REPETIÇÃO -->
+        </div> <!-- FIM DA ROW -->
         
-      </div>
-    </div>
+      </div> <!-- FIM DO CONTENT -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script src="main.js"></script>

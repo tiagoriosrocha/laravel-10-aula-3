@@ -8,6 +8,15 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
+
+    <!------------------------------------------------------------
+      ------------------------------------------------------------
+      AQUI EU CRIO O MENU SUPERIOR DO SITE UTILIZANDO O ELEMENTO
+      NAVBAR DO BOOTSTRAP
+      ------------------------------------------------------------
+      ------------------------------------------------------------ 
+    -->
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
         <a class="navbar-brand" href="/">Netflix</a>
@@ -36,18 +45,43 @@
           </form>
         </div>
       </div>
-    </nav>
-
+    </nav><!-- FIM DO MENU SUPERIOR -->
+    
+    
+    <!------------------------------------------------------------
+      ------------------------------------------------------------
+      INÍCIO DO CONTEÚDO DO BOOTSTRAP
+      ------------------------------------------------------------
+      ------------------------------------------------------------ 
+    -->
     <div class="container my-5">
-      
+        <!------------------------------------------------------------
+          ------------------------------------------------------------
+          AQUI EU CRIO UMA LINHA (ROW) DO BOOTSTRAP
+          E COLOCO UM TÍTULO DA PÁGINA
+          ------------------------------------------------------------
+          ------------------------------------------------------------ 
+        -->
         <div class="row">
             <div class="col-md-12 mb-5">
                 <h1 class="text-center">Netflix Titles</h1>
             </div>
-        </div>
+        </div> <!-- FIM DA ROW -->
 
+        <!------------------------------------------------------------
+          ------------------------------------------------------------
+          AQUI EU CRIO UMA LINHA (ROW) DO BOOTSTRAP
+          E COLOCO UM TÍTULO DA PÁGINA
+          ------------------------------------------------------------
+          ------------------------------------------------------------ 
+        -->
         <div class="row">
-                <div class="col-md-12">
+                  <!-- 
+                  AQUI EU SÓ CRIO UM CARD
+                  QUE IRÁ OCUPAR TODAS AS 12 COLUNAS DA TELA
+                  E IRÁ EXIBIR OS DETALHES DE SOMENTE UM TÍTULO.
+                  -->
+                  <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
                             <p><span class="badge text-bg-dark ">{{ $umTitulo->ano }}</span> <span class="badge text-bg-success">{{$umTitulo->duracao}}</span></p>
@@ -58,9 +92,9 @@
                         </div>
                     </div>
                 </div>
-        </div>
+        </div> <!-- FIM DA ROW -->
         
-      </div>
+      </div> <!-- FIM DO CONTENT -->
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
