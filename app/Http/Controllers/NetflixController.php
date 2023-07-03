@@ -35,6 +35,7 @@ class NetflixController extends Controller
         $colecaoFiltrada = $collection->filter(function ($umItem) use ($nomePais) {
             return false !== stristr($umItem->pais, $nomePais);
         });
+
         $collection = $collection->sortBy("titulo");
 
         return view('exibirTitulos',["titulos" => $colecaoFiltrada]);
@@ -53,4 +54,29 @@ class NetflixController extends Controller
         return view('exibirTitulos',["titulos" => $colecaoFiltrada]);
     }
 
+    public function buscaPorTitulo1(Request $request){
+        $campoBusca = $request->input('busca');
+        $collection = $this->carregarDados();
+        $colecaoFiltrada = $collection->where("titulo",$campoBusca);
+        $colecaoFiltrada = $colecaoFiltrada->sortBy("titulo");
+        return view('exibirTitulos',["titulos" => $colecaoFiltrada]);
+    }
+
+    public function buscaPorTitulo2(Request $request){
+        $campoBusca = $request->input('busca');
+        $collection = $this->carregarDados();
+
+        $colecaoFiltrada = $collection->filter(function ($umTitulo) use ($campoBusca) {
+            return false !== stristr($umTitulo->titulo, $campoBusca);
+        });
+
+        $colecaoFiltrada = $colecaoFiltrada->sortBy("titulo");
+        return view('exibirTitulos',["titulos" => $colecaoFiltrada]);
+    }
+
+    public function ordenarPorTipo($tipo){
+        $collection = $this->carregarDados();
+        $collection = $collection->sortBy($tipo);
+        return view('exibirTitulos',["titulos" => $collection]);
+    }
 }
