@@ -79,7 +79,8 @@
         <!------------------------------------------------------------
           ------------------------------------------------------------
           AQUI EU CRIO UMA LINHA (ROW) DO BOOTSTRAP
-          E COLOCO UM TÍTULO DA PÁGINA
+          AQUI EU VOU EXIBIR OS ITENS UTILIZANDO ELEMENTOS DO TIPO CARD
+          DO BOOTSTRAP
           ------------------------------------------------------------
           ------------------------------------------------------------ 
         -->
